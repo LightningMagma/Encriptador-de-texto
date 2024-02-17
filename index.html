@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="logo">
+        <img id="logopg" src="img/Logo.png" alt="Logo de la empresa que correponde a una letra a minúscula">
+    </div>
+    <div id="copiado" class="mensajeCopiado">
+        <p>Texto copiado al portapapeles</p>
+    </div>
+    <section class="encriptador">
+        <textarea class="text" autofocus placeholder="Ingrese el texto aquí" required id="textoUsuario" cols="80" rows="10" oninput="this.value = this.value.replace(/[^a-z ]/g, '').replace(/(\..*)\./g, '$1')"></textarea>
+        <div class="advertencia"><img class="advico" src="img/bi_exclamation-circle-fill.png" alt="Advertencia">
+            <p class="advtxt">Solo letras minúsculas y sin acentos</p>
+        </div>
+        <div class="botones">
+            <button onclick="transformarTexto('encriptar');" class="botenc">Encriptar</button>
+            <button onclick="transformarTexto('desencriptar');" class="botenc">Desencriptar</button>
+        </div>
+    </section>
+    <section id="resultado" class="msg">
+        <textarea class="msgenc" id="textoSalida" readonly></textarea>
+        <img id="imagenResultado" class="imgmsg" src="img/Muñeco.png" alt="imagen de chica buscando con lupa">
+        <div id="sinTexto" class="sinTexto">
+            <p class="prin">Ningún mensaje fue encontrado</p>
+            <p class="sec">Ingresa el texto que deseas encriptar o desencriptar</p>
+        </div>
+        <button onclick="copiarTexto();" id="msgcopy" class="msgcopy">Copiar</button>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
